@@ -1,0 +1,502 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(240, 238, 232);
+    min-height: 200vh;
+}
+.toggle-button {
+  position: absolute;
+  top: 5rem;
+  right: 5%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+
+}
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 40px 100px;
+    z-index: 100000;
+}
+ header.sticky {
+     padding: 5px 100px;
+     background: #fff;
+ }
+
+header .logo {
+    position: relative;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-style: 2mm;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.6s;
+
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    position: relative;
+    list-style:none;
+}
+
+header ul li a {
+    position: relative;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.7;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+header ul li a:hover {
+  opacity: 1;
+}
+header.sticky .logo,
+header.sticky ul li a {
+  color: black;
+}
+header.sticky .toggle-button .bar {
+    background-color: #000;
+}
+
+.banner {
+    position: relative;
+    width: 100vw;
+    height: 25vh;
+    background: url(/Art/bridgegirls.JPG);
+    background-size:cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.newest-photos {
+    position: relative;
+}
+
+.text-block {
+    position: absolute;
+    background-color: transparent;
+    letter-spacing: 2px;
+    color: black;
+    left: 0;
+    padding-left: 25px;
+    font-size: 15px;
+
+}
+.text-block > h4 {
+     font-weight: 700;
+}
+.carousel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding-top: 50px;
+    border: #fff;
+  }
+  
+  .carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .slide {
+    position: absolute;
+    justify-content: center;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+    padding: 50px 0px 50px 00px;
+    
+  }
+  
+  .slide > img {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    border: 75px solid white;
+  }
+  
+  .slide > p {
+      position: absolute;
+      top: 99%;
+      left: 70%;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 100;
+      color: black;
+      letter-spacing: 2px;
+      padding: 10px;
+      text-transform: uppercase;
+      /* border: 0.5px solid white; */
+  }
+  .slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+  }
+  
+  .carousel-button {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, .5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 .5rem;
+    background-color: rgba(0, 0, 0, .1);
+ 
+  }
+  
+  .carousel-button:hover,
+  .carousel-button:focus {
+    color: white;
+    background-color: rgba(0, 0, 0, .2);
+  }
+  
+  .carousel-button:focus {
+    outline: 1px solid black;
+  }
+  
+  .carousel-button.prev {
+    left: 1rem;
+  }
+  
+  .carousel-button.next {
+    right: 1rem;
+  }
+
+.section-title {
+      text-align: center;
+      letter-spacing: 2px;
+      margin-top: 200px;
+      font-size: 25px;
+      font-weight: 300;
+      margin-bottom: 10px;
+  }
+
+  hr {
+
+    margin: auto;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      width: 100vw;
+    
+  }
+   
+  .gallery-piece {
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    margin: 15px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    width: 30%;
+    height: 40%;
+    box-shadow:rgba(0, 0, 0, .2);
+
+
+}
+ 
+
+  .gallery-piece > img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    height: 45vh;
+    width: 30vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+    cursor: pointer;
+
+  }
+  .gallery-piece .text {
+    font-size: 15px;
+    letter-spacing: 2px;
+
+
+  }
+ 
+  .text > h1 {
+      font-size: 15px; 
+      padding: 10px;
+  }
+
+  .text > h2 {
+    font-size: 10px;
+  }
+  .text > p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 5px;
+  }
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/Art/bridgegirls.JPG) center/cover no-repeat fixed;
+    background-size: cover;
+    
+
+  }
+  .about-me {
+    color: white;
+    display: flex;
+    align-items: center;
+    /* background-color: rgb(255, 255, 255, 0.7); */
+    margin: 40px;
+    
+  }
+  .me-pic > img{
+    display: block;
+    height: 45vh;
+    width: 40vw;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+  }
+
+  .describe-me {
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin: 40px;
+  }
+
+  .contact-me {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 40px;
+    letter-spacing: 2px;
+    padding: 50px;
+  }
+
+  .newsletter-wrapper{
+    height: 60vh;
+    
+    padding: 5rem 0;
+    text-align: center;
+}
+.newsletter-title{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+.form-control{
+    font-size: 1rem;
+    background: transparent;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid white;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+.form-control::placeholder{
+    color: gray;
+    letter-spacing: 2px;
+}
+.form-control:focus{
+    outline: none;
+}
+.form-control, .newsletter-wrapper .btn-trans{
+    width: 50%;
+    margin: 1rem 0;
+}
+.newsletter-wrapper .btn-trans{
+    background: transparent;
+    border-color: gray;
+    font-size: 1.1rem;
+    padding: 20px;
+    color: white;
+    letter-spacing: 2px;
+}
+.newsletter-wrapper .btn-trans:hover{
+    background: #fff;
+    color: black;
+}
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+
+   @media screen and (max-width: 600px) {
+
+
+    header{
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 30px;
+  
+
+  }
+  header .logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+ 
+}
+header ul {
+  display: none;
+  top: 50px;
+  width: 100vw;
+  align-items: flex-start;
+  transition: all .5s ease;
+
+}
+header ul li {
+  padding: 2px;
+  margin: 0;
+}
+
+header ul.active {
+  display: flex;
+
+}
+header.sticky ul.active {
+  display:flex;
+  height: 50px;
+    background-color: white;
+  width: 100%;
+
+}
+
+  header.sticky {
+    width: 100%;
+    padding: 0;
+    height: 45px;
+    margin-bottom: 30px;
+    color: white;
+    transition: 0.6s;
+}
+  header.sticky ul {
+    top: 45px;
+    width: 100;
+    padding: 15px;
+  display: none;
+  justify-content: center;
+ 
+}
+.toggle-button {
+  display:flex;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+}
+header.sticky ul.inactive{
+  display: none;
+}
+.slide > img {
+  border: none;
+}
+.slide > p {
+  color: white;
+  border: 1px solid white;
+  top: 90%;
+}
+.gallery {
+    display:flex;
+    flex-direction: column;
+   justify-content: space-between;
+   
+ }
+ .gallery-piece {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  .gallery-piece > img {
+    display: block;
+    object-fit: cover;
+    height: 300px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+  .gallery-piece .text {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+  .about-me {
+    flex-direction: column;
+  }
+  .me-pic > img {
+    width: 250px;
+  }
+  }
+
+  
